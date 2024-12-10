@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Serif+Display:wght@600&family=Poppins:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Yosemite</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+                <a href="#" class="logo">Wandr.</a>
+                <div class="social-links">
+                    <span class="social-links__title">Follow us</span>
+                    <div class="links">
+                        <a href="https://www.instagram.com/nationalparkservice" class="link link--inst"
+                            target="_blank"></a>
+                        <a href="https://www.facebook.com/nationalparkservice" class="link link--fb"
+                            target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="container">
+            <div class="hero">
+                <div class="hero__content">
+                    <h1 class="hero__title title">Yosemite</h1>
+                    <p class="hero__subtitle">National park</p>
+                </div>
+                <button class="hero__label label">GLACIER PEAK</button>
+            </div>
+            <div class="details">
+                <h2 id="details" class="details__title title">Glacier Peak</h2>
+                <p class="details__coords">37° 72′ 87″ N, 119° 57′ 36″ W</p>
+                <p class="details__description">Glacier Point, an overlook with a commanding view of Yosemite Valley,
+                    Half Dome, Yosemite Falls, and Yosemite's high country, is accessible by car from approximately late
+                    May through October or November. From mid-December through March, cross-country skiers can
+                    experience this view after skiing 10.5 miles.</p>
+                <a href="https://www.nps.gov/yose/planyourvisit/placestogo.htm" class="details__label label"
+                    target="_blank">POINTS OF INTEREST</a>
+            </div>
+        </div>
+        <div class="bg bg--sky"></div>
+        <div class="bg bg--mountains"></div>
+    </main>
+
+    <script src="https://unpkg.com/lenis@1.1.17/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script>
+
+        const lenis = new Lenis();
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+            gsap.defaults({ ease: 'none' })
+
+            document.querySelector('.hero__label').addEventListener('click', () => {
+                gsap.to(window, {
+                    scrollTo: {
+                        y: "#details",
+                        offsetY: 50,
+                    }
+                })
+            })
+
+
+            gsap.to('.hero__content', {
+                scrollTrigger: {
+                    trigger: '.hero__content',
+                    start: 'top top',
+                    endTrigger: '.details',
+                    end: 'top top',
+                    scrub: true
+                },
+                scale: 0,
+                yPercent: 100
+            })
+            gsap.to('.page', {
+                scrollTrigger: {
+                    trigger: '.hero__content',
+                    start: 'top top',
+                    endTrigger: '.details',
+                    end: 'top top',
+                    scrub: true
+                },
+                '--opacity': 1
+            })
+            gsap.to('.hero__label', {
+                scrollTrigger: {
+                    trigger: '.hero__content',
+                    start: 'top top',
+                    endTrigger: '.details',
+                    end: 'top top',
+                    scrub: true
+                },
+                yPercent: 300
+            })
+
+            gsap.to('.bg--mountains', {
+                scrollTrigger: {
+                    trigger: '.hero__content',
+                    start: 'top top',
+                    endTrigger: '.details',
+                    end: 'top top',
+                    scrub: true
+                },
+                scale: 1.5
+            })
+
+            gsap.from('.details > *', {
+                scrollTrigger: {
+                    trigger: '.details',
+                    start: 'top center',
+                    end: 'bottom bottom',
+                    scrub: true,
+                },
+                opacity: 0,
+                y: 50,
+                stagger: 0.3
+            });
+        });
+    </script>
+</body>
+
+</html>

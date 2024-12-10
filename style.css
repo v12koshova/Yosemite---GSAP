@@ -1,0 +1,315 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 1.111vw;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #44332a;
+}
+
+a {
+    cursor: pointer;
+    color: initial;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.container {
+    max-width: 80rem;
+    padding: 0 1.25rem;
+    margin: auto;
+}
+.author {
+    color: #808080;
+    position: fixed;
+    bottom: 1rem;
+    left: 0.5rem;
+    z-index: 18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    writing-mode: vertical-rl;
+    transform: scale(-1, -1);
+}
+
+.author::before {
+    content: '—'
+}
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 17;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.938rem 0;
+}
+
+.logo {
+    font-family: "DM Serif Display", serif;
+    letter-spacing: normal;
+    font-size: 1.688rem;
+}
+
+.social-links {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+.social-links__title {
+    gap: 0.313rem;
+    display: flex;
+    color: #808080;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.social-links__title::after {
+    content: '—';
+    position: relative;
+}
+
+.links {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.link {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.link--inst {
+    background-image: url("data:image/svg+xml,%3Csvg width='25' height='23' viewBox='0 0 25 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.339 2.102a5.083 5.083 0 0 1 3.498 1.392 4.654 4.654 0 0 1 1.455 3.348v9.479a4.654 4.654 0 0 1-1.455 3.347 5.083 5.083 0 0 1-3.498 1.392H7.434a5.083 5.083 0 0 1-3.498-1.392A4.653 4.653 0 0 1 2.48 16.32V6.842a4.653 4.653 0 0 1 1.455-3.348 5.083 5.083 0 0 1 3.498-1.392h9.905Zm0-1.896H7.434C3.62.206.5 3.192.5 6.842v9.479c0 3.65 3.12 6.635 6.934 6.635h9.905c3.813 0 6.933-2.986 6.933-6.636V6.842c0-3.65-3.12-6.636-6.933-6.636Z' fill='%23808080'/%3E%3Cpath d='M18.825 6.842c-.294 0-.581-.084-.826-.24a1.437 1.437 0 0 1-.547-.638 1.365 1.365 0 0 1-.085-.821c.058-.276.2-.53.407-.728.208-.2.473-.335.76-.39.289-.054.588-.026.86.081.27.108.503.29.666.524a1.378 1.378 0 0 1-.184 1.796 1.489 1.489 0 0 1-.482.308 1.54 1.54 0 0 1-.57.108Zm-6.438.947c.783 0 1.55.223 2.2.64a3.833 3.833 0 0 1 1.46 1.701c.3.693.378 1.455.226 2.191a3.745 3.745 0 0 1-1.085 1.941A4.02 4.02 0 0 1 13.16 15.3a4.128 4.128 0 0 1-2.289-.216 3.93 3.93 0 0 1-1.778-1.396 3.677 3.677 0 0 1-.668-2.107 3.715 3.715 0 0 1 1.162-2.68 4.059 4.059 0 0 1 2.8-1.112Zm0-1.895a6.135 6.135 0 0 0-3.302.958 5.75 5.75 0 0 0-2.19 2.553 5.46 5.46 0 0 0-.337 3.286 5.616 5.616 0 0 0 1.626 2.912 6.03 6.03 0 0 0 3.043 1.556 6.191 6.191 0 0 0 3.434-.323 5.895 5.895 0 0 0 2.667-2.095 5.515 5.515 0 0 0 1.002-3.16 5.566 5.566 0 0 0-1.741-4.021 6.081 6.081 0 0 0-4.202-1.666Z' fill='%23808080'/%3E%3C/svg%3E");
+}
+
+.link--fb {
+    background-image: url("data:image/svg+xml,%3Csvg width='26' height='21' viewBox='0 0 26 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.515 2.855c-.955.413-1.966.685-3 .807A5.149 5.149 0 0 0 24.814.836a10.534 10.534 0 0 1-3.32 1.239A5.289 5.289 0 0 0 17.678.456c-2.887 0-5.224 2.289-5.224 5.11-.002.392.043.784.135 1.165a14.969 14.969 0 0 1-5.954-1.54 14.88 14.88 0 0 1-4.818-3.802 5.022 5.022 0 0 0-.71 2.569c0 1.771.93 3.338 2.334 4.255a5.199 5.199 0 0 1-2.376-.638v.063c0 2.479 1.804 4.54 4.192 5.01-.45.12-.912.18-1.377.18-.33 0-.658-.032-.982-.095.664 2.03 2.596 3.506 4.885 3.549a10.633 10.633 0 0 1-6.491 2.188c-.417 0-.833-.025-1.247-.074a14.856 14.856 0 0 0 7.999 2.31c9.623 0 14.88-7.789 14.88-14.544 0-.222-.005-.443-.016-.66a10.498 10.498 0 0 0 2.607-2.647Z' fill='%23808080'/%3E%3C/svg%3E");
+}
+
+.page {
+    height: 200vh;
+    animation-timing-function: linear;
+    position: relative;
+    --opacity: 0
+}
+
+.page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: var(--opacity);
+    z-index: 5;
+}
+
+
+.hero {
+    height: 100vh;
+}
+
+.hero__content {
+    position: fixed;
+    left: 0;
+    z-index: 2;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+}
+
+.title {
+    font-family: "DM Serif Display", serif;
+
+}
+
+.hero__title {
+    letter-spacing: 0.9rem;
+    font-size: 5rem;
+    background-image: url('./img/mountains.webp');
+    background-clip: text;
+    color: transparent;
+    background-position: center;
+    margin-top: 0;
+    margin-bottom: 0.625rem;
+
+}
+
+
+.hero__subtitle {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.313rem;
+    color: #44332a;
+}
+
+.label {
+    z-index: 6;
+    backdrop-filter: blur(0.625rem);
+    padding: 0.938rem 1.25rem;
+    border-radius: 3.125rem;
+    font-size: 1rem;
+    color: white;
+    letter-spacing: 0.313rem;
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.938rem;
+}
+
+.label::before {
+    content: '';
+    position: relative;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' fill='%23fff' stroke='%23fff' stroke-width='.01'%3E%3Cpath d='M512 928c23.936 0 117.504-68.352 192.064-153.152C803.456 661.888 864 535.808 864 416c0-189.632-155.84-320-352-320S160 226.368 160 416c0 120.32 60.544 246.4 159.936 359.232C394.432 859.84 488 928 512 928zm0-435.2a64 64 0 1 0 0-128 64 64 0 0 0 0 128zm0 140.8a204.8 204.8 0 1 1 0-409.6 204.8 204.8 0 0 1 0 409.6z'/%3E%3C/svg%3E");
+    width: 1.25rem;
+    height: 1.25rem;
+    display: block;
+    background-size: contain;
+}
+
+.hero__label {
+    position: fixed;
+    bottom: 3.125rem;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.bg {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+}
+
+.bg--sky {
+    background-image: url('./img/sky.webp');
+}
+
+.bg--mountains {
+    background-image: url('./img/mountains.webp');
+    z-index: 4;
+    transform-origin: center bottom;
+}
+
+
+.details {
+    position: relative;
+    z-index: 8;
+    color: white;
+    text-align: center;
+    max-width: 34.375rem;
+    margin: auto;
+    right: 0;
+    left: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+
+.details__title {
+    font-size: 4.625rem;
+    margin-bottom: 0;
+    font-family: "Noto Serif Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+}
+
+.details__coords {
+    letter-spacing: 0.313rem;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+.details__description {
+    margin-bottom: 3.125rem;
+}
+
+::-webkit-scrollbar {
+    background-color: #F7EBDE;
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #BBA388;
+}
+
+@media (max-width: 1280px) {
+    html {
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 920px) {
+    html {
+        font-size: 2.957vw;
+    }
+}
+
+@media (max-width: 541px) {
+    html {
+        font-size: 4.267vw;
+
+    }
+
+    .label {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .hero__title {
+        font-size: 3rem;
+    }
+
+    .details__title {
+        font-size: 2rem;
+    }
+
+    .details__coords {
+        font-size: 0.75rem;
+        margin-top: 0.75rem;
+    }
+
+    .details__description {
+        font-size: 0.75rem;
+    }
+}
